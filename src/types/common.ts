@@ -1,0 +1,1 @@
+export type TCommonIcon = 'js' | 'ts' | 'react' | 'nextjs' | 'nodejs' | 'html' | 'css' | 'tailwind' | 'git' | 'github' | 'vercel'| 'npm' | 'figma';
