@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/Button";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -37,7 +38,7 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-surface-light dark:bg-surface-dark p-8 rounded-xl shadow-lg "
+          className="bg-background-light dark:bg-surface-dark p-8 rounded-xl shadow-lg  w-2xl"
         >
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <div>
@@ -93,12 +94,12 @@ export default function ContactForm() {
               />
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="bg-primary text-text-light font-bold h-14 rounded-lg hover:opacity-90 active:opacity-80 transition"
+              className="bg-[#98DAD9] text-[#2E424D] font-bold h-14 rounded-lg hover:opacity-90 active:opacity-80 transition"
             >
               Send Message
-            </button>
+            </Button>
           </form>
         {status && <p className="mt-4 text-sm">{status}</p>}
         </motion.div>
