@@ -1,7 +1,17 @@
-import { Switch } from "@/components/Switch";
+'use client'
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Switch } from "@/components/Switch";
+import { cn } from "@/lib";
+import { Button } from "@/components/Button";
+import { Sun } from "lucide-react";
+
+
 
 export  function Header() {
+  const  pathname = usePathname()
+
   return (
      <header className="absolute top-0 left-0 right-0 z-10 p-4 sm:p-6 md:p-8 ">
         <div className="container mx-auto flex items-center justify-between">
@@ -20,18 +30,23 @@ export  function Header() {
 
           <div className="flex items-center gap-6">
             <nav className="hidden md:flex items-center gap-6">
-              <Link className="text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors" href="/about">
+              <Link className={cn(pathname === '/about' && 'text-[#5b8291] font-medium',"text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors")} href="/about">
                 About
               </Link>
-              <Link  className="text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors" href="/works">
+              <Link  className={cn(pathname === '/works' && 'text-[#5b8291] font-medium',"text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors")} href="/works">
                 Projects
               </Link>
-              <Link className="text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors" href="/contact">
+              <Link className={cn(pathname === '/contact' && 'text-[#5b8291] font-medium',  "text-sm font-medium hover:text-primary dark:hover:text-accent-dark transition-colors")} href="/contact">
                 Contact
               </Link>
             </nav>
            
-              <Switch className="material-symbols-outlined text-xl"/>
+           <Button className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-black/5 dark:bg-white/10 text-text-light dark:text-text-dark hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
+              <span className="material-symbols-outlined text-xl">
+                <Sun />
+              </span>
+            </Button>
+
           </div>
         </div>
       </header>

@@ -8,26 +8,32 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("Sending...");
 
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-    const data = await res.json();
-    if (data.success) {
-      setStatus("✅ Message sent successfully!");
-      setForm({ name: "", email: "", message: "" });
-    } else {
-      setStatus("❌ Failed to send. Try again later.");
+      const data = await res.json();
+      if (data.success) {
+        setStatus("✅ Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send. Try again later.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("❌ An error occurred. Please try again.");
     }
   };
 
@@ -48,15 +54,16 @@ export default function ContactForm() {
               >
                 Full Name
               </label>
-              <input
-                id="fullName"
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-                className="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
-              />
+             <input
+              id="name"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+              required
+              className="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
+            />
             </div>
 
             <div>
@@ -66,15 +73,16 @@ export default function ContactForm() {
               >
                 Email Address
               </label>
-              <input
-                id="emailAddress"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Enter your email address"
-                required
-                className="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
-              />
+             <input
+              id="email"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Enter your email address"
+              required
+              className="form-input w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
+            />
             </div>
 
             <div>
@@ -84,14 +92,15 @@ export default function ContactForm() {
               >
                 Your Message
               </label>
-              <textarea
-                id="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Hi, I'd like to connect regarding..."
-                required
-                className="form-textarea w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark min-h-36 px-4 py-3 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
-              />
+               <textarea
+              id="message"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Hi, I'd like to connect regarding..."
+              required
+              className="form-textarea w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark min-h-36 px-4 py-3 focus:ring-2 focus:ring-primary/50 focus:outline-none transition"
+            />
             </div>
 
             <Button
