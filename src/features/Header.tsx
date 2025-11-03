@@ -1,11 +1,11 @@
 "use client";
 
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { cn } from "@/lib";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { cn } from "@/lib";
-import { Button } from "@/components/Button";
-import { Sun, Menu } from "lucide-react";
 import { Sidebar } from "./Sidebar";
 
 export function Header() {
@@ -64,9 +64,10 @@ export function Header() {
           </nav>
 
           {/* Theme Button */}
-          <Button className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/10 text-text-light dark:text-text-dark hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
+          {/* <Button className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/10 text-text-light dark:text-text-dark hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
             <Sun className="size-5" />
-          </Button>
+          </Button> */}
+          <ThemeToggle/>
 
           {/* Mobile Menu Button */}
           <button

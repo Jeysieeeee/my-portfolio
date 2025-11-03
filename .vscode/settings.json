@@ -1,0 +1,39 @@
+{
+  "eslint.useFlatConfig": true,
+  "eslint.ignoreUntitled": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "always",
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 80,
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.next": true
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+  "editor.inlineSuggest.enabled": true,
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
+  "css.validate": false,
+  "cSpell.words": ["enbsp", "inplay", "Signup"]
+}
