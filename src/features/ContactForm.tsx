@@ -38,13 +38,12 @@ export default function ContactForm() {
   };
 
   return (
-<div>
     <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-background-light dark:bg-surface-dark p-8 rounded-xl shadow-lg  w-2xl"
+          className="w-full bg-surface-light dark:bg-surface-dark p-8 rounded-xl shadow-lg"
         >
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <div>
@@ -112,6 +111,5 @@ export default function ContactForm() {
           </form>
         {status && <p className="mt-4 text-sm">{status}</p>}
         </motion.div>
-     </div>
   );
 }
