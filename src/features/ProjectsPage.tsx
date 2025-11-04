@@ -47,7 +47,7 @@ const projects: Project[] = [
     description:
       "A comprehensive web-based system designed to streamline operations in veterinary clinics. It enables appointment scheduling, patient record management, billing, and inventory tracking through an intuitive user interface. Built with a focus on efficiency, data accuracy, and user-friendly design, this project showcases skills in full-stack development, database integration, and responsive UI design.",
     tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", ],
- image: "/images/works/KHO_vet.png",
+ image: "/images/works/KHO_Vet.png",
  note:"NOTE: This project is developed for a client and is not open-source."
   },
     {
