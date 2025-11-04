@@ -1,10 +1,9 @@
 "use client";
 
-import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import { CodeXml, Download, Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 interface Project {
   title: string;
@@ -14,6 +13,7 @@ interface Project {
  liveDemo?:string;
   viewCode?:string;
   downloadApp?:string
+  note?:string;
 }
 
 const projects: Project[] = [
@@ -42,6 +42,30 @@ const projects: Project[] = [
     tech: ["React", "NextJS", "TypeScript", "MongoDB", "Web Sockets", "Third-party API Integration", "Tailwind CSS", "ShadCN UI", "Vercel", "AWS S3", "Cloudflare", "GitLab CI/CD"],
  
   },
+  {
+    title: "Veterinary Clinic Management System",
+    description:
+      "A comprehensive web-based system designed to streamline operations in veterinary clinics. It enables appointment scheduling, patient record management, billing, and inventory tracking through an intuitive user interface. Built with a focus on efficiency, data accuracy, and user-friendly design, this project showcases skills in full-stack development, database integration, and responsive UI design.",
+    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", ],
+ image: "/images/works/KHO_vet.png",
+ note:"NOTE: This project is developed for a client and is not open-source."
+  },
+    {
+    title: "Ark – Space Reservation and Renting App with Admin Dashboard",
+    description:
+      "A full-stack application for booking and managing rental spaces, built with React Native for mobile and React for the admin dashboard. The app allows users to browse, reserve, and rent spaces seamlessly, while the admin dashboard enables real-time management of listings, bookings, and user data. Designed with a focus on scalability, modern UI, and efficient backend integration. ",
+    tech: ["TypeScript", "React Native", "Expo Go", "Native Wind", "NextJS", "Tailwind", "ShadCN UI", "MongoDB", "Web Sockets" ],
+ image: "/images/works/park_space.png",
+ note:"NOTE: This project is developed for a client and is not open-source."
+  },
+  {
+    title: "AI Chat Application and Web",
+    description:
+      "A cross-platform AI-powered chat application built with React Native and React for web support. It enables users to chat with an intelligent assistant powered by OpenAI’s API. The project showcases seamless mobile and web integration, real-time messaging, and a modern, responsive UI. Designed to highlight skills in cross-platform development, API integration, and state management for smooth performance across iOS, Android, and web browsers",
+    tech: ["TypeScript", "React Native", "Expo Go", "Native Wind", "OpenAI API", "NextJS", "Tailwind", "ShadCN UI" ],
+ image: "/images/works/chat.png",
+ viewCode:'https://github.com/Jeysieeeee/chat-app'
+  },
     {
     title: "Augmented Reality Mobile App",
     description:
@@ -58,12 +82,12 @@ export default function ProjectsPage() {
       <section >
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((proj, i) => (
-            <div
+            <Card
               key={i}
-              className="group flex flex-col rounded-xl bg-card-light shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-card-dark"
+              className="group flex transform flex-col rounded-xl bg-card-light shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-card-dark p-0 border-0"
             >
               <div className="relative overflow-hidden rounded-t-xl">
-                <div className="aspect-video w-full overflow-hidden">
+                <div className="aspect-video w-full bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105">
                     {proj.image ? (  <Image
                     src={proj.image }
                     alt={proj.title}
@@ -72,7 +96,7 @@ export default function ProjectsPage() {
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />) : 
                   <div className="flex justify-center items-center group-hover:scale-105 h-full w-full bg-gray-200 dark:bg-gray-700">
-                    <span className="font-bold text-2xl">Company Property</span>
+                    <span className="font-bold text-2xl">Company Projects</span>
                   </div>
                   }
                 
@@ -86,7 +110,7 @@ export default function ProjectsPage() {
                     {proj.title}
                   </p>
                   <p className="text-base text-accent-1 dark:text-gray-400">
-                    {proj.description}
+                    {proj.description} <span className="text-red-300">{proj.note}</span>
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {proj.tech.map((t) => (
@@ -106,7 +130,7 @@ export default function ProjectsPage() {
             <Link
               href={proj.liveDemo}
               target="_blank"
-              className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition-colors border border-[#98dad9]/50 bg-transparent text-[#98dad9] hover:bg-[#98dad9]/10 dark:text-accent-2 dark:hover:bg-accent-2/10"
+              className="flex h-10 flex-1 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-accent-1 px-4 text-sm font-medium leading-normal text-white transition-colors hover:bg-accent-1/90"
             >
               <Eye className="w-4 h-4" />
               Live Demo
@@ -117,7 +141,7 @@ export default function ProjectsPage() {
             <Link
               href={proj.viewCode}
               target="_blank"
-              className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition-colors bg-[#98dad9] text-white hover:bg-opacity-90"
+              className="flex h-10 flex-1 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg border border-accent-1/50 bg-transparent px-4 text-sm font-medium leading-normal text-accent-1 transition-colors hover:bg-accent-1/10 dark:text-accent-2 dark:hover:bg-accent-2/10"
             >
               <CodeXml className="w-4 h-4" />
               View Code
@@ -127,7 +151,7 @@ export default function ProjectsPage() {
              <Link
               href={proj.downloadApp}
               target="_blank"
-              className="flex h-10 flex-1 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition-colors bg-[#98dad9] text-white hover:bg-opacity-90"
+              className="flex h-10 flex-1 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg border border-accent-1/50 bg-transparent px-4 text-sm font-medium leading-normal text-accent-1 transition-colors hover:bg-accent-1/10 dark:text-accent-2 dark:hover:bg-accent-2/10"
             >
                <Download />
              Get the App
@@ -135,7 +159,7 @@ export default function ProjectsPage() {
           )}
         </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>

@@ -1,28 +1,45 @@
 @import "tailwindcss";
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background-light: #eaebed;
-  --background-dark: #2e424d;
-  --text-light: #2e424d;
-  --text-dark: #eaebed;
-  --accent-light: #5b8291;
-  --accent-dark: #98dad9;
-  --cta-light: #98dad9;
-  --cta-dark: #5b8291;
+  --background: #eaebed;
+  --foreground: #2e424d;
+  --accent: #5b8291;
+  --cta: #98dad9;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root.dark,
+:root .dark {
+  --background: #2e424d;
+  --foreground: #ededed;
+  --accent: #98dad9;
+  --cta: #5b8291;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2E424D;
-    --foreground: #ededed;
-  }
+@theme  {
+  --color-background-light: #eaebed;
+  --color-background-dark: #2e424d;
+  --color-primary:#2E424D;
+  --color-secondary:#5B8291;
+  --color-accent-light: #5b8291;
+  --color-accent-dark: #98dad9;
+  --color-text-light: #2E424D;
+  --color-text-dark: #eaebed;
+  --color-cta-light: #98dad9;
+  --color-cta-dark: #5b8291;
+  --color-border-light: #d1d5db;
+  --color-border-dark: #5B8291;
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #3a505b;
+  --color-text-secondary-light: #5B8291;
+  --color-text-secondary-dark: #b0c1c9;
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #2E424D;
+  --color-accent-1: #5B8291;
+  --color-accent-2: #98DAD9;
 }
 
 body {

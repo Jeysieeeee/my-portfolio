@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -26,14 +27,14 @@ export default function ContactForm() {
 
       const data = await res.json();
       if (data.success) {
-        setStatus("✅ Message sent successfully!");
+        toast.success("Message sent successfully!");
         setForm({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Failed to send. Try again later.");
+        toast.error("Failed to send. Try again later.");
       }
     } catch (error) {
       console.error(error);
-      setStatus("❌ An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   };
 
@@ -46,7 +47,7 @@ export default function ContactForm() {
           className="w-full bg-surface-light dark:bg-surface-dark p-8 rounded-xl shadow-lg"
         >
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            <div>
+            <div className="flex flex-col min-w-40 flex-1">
               <label
                 htmlFor="fullName"
                 className="block text-base font-medium pb-2"
@@ -65,7 +66,7 @@ export default function ContactForm() {
             />
             </div>
 
-            <div>
+            <div className="flex flex-col min-w-40 flex-1">
               <label
                 htmlFor="emailAddress"
                 className="block text-base font-medium pb-2"
@@ -84,7 +85,7 @@ export default function ContactForm() {
             />
             </div>
 
-            <div>
+            <div className="flex flex-col min-w-40 flex-1">
               <label
                 htmlFor="message"
                 className="block text-base font-medium pb-2"
@@ -104,12 +105,12 @@ export default function ContactForm() {
 
             <Button
               type="submit"
-              className="bg-[#98DAD9] text-[#2E424D] font-bold h-14 rounded-lg hover:opacity-90 active:opacity-80 transition"
+              className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 bg-primary  dark:bg-accent-dark dark:text-background-dark text-accent-2 text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 active:opacity-80 transition-opacity"
             >
               Send Message
             </Button>
           </form>
-        {status && <p className="mt-4 text-sm">{status}</p>}
+       
         </motion.div>
   );
 }

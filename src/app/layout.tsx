@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/Sonner";
 import { MainLayout } from "@/features";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
        <body className={`${spaceGrotesk.className} bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased`}>
       <MainLayout>{children}</MainLayout>
+        <Toaster duration={3000} className="sm:min-w-120 rounded-md" position="top-center" />
       </body>
     </html>
   );

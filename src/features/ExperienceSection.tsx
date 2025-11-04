@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Button } from "@/components/Button";
-import { Card, CardContent } from "@/components/Card";
-import { cn } from "@/lib/utils";
+import { Card } from "@/components/Card";
+import { BriefcaseBusiness, ChevronDown } from 'lucide-react';
 import { useTheme } from "next-themes";
 import { useState } from "react";
-import { BriefcaseBusiness, ChevronDown, ChevronUp } from 'lucide-react';
 
 export  function ExperienceSection() {
   const { theme } = useTheme();
@@ -71,11 +69,11 @@ export  function ExperienceSection() {
           Professional Experience
         </h2>
 
-        <Card className="grid grid-cols-[auto_1fr] gap-x-4 px-4 py-4">
+        <Card className="grid grid-cols-[auto_1fr] gap-x-4 px-4 py-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark">
           {experiences.map((exp, i) => (
             <div key={i} className="contents">
               <div className="flex flex-col items-center gap-1 pt-3">
-                <span className="material-symbols-outlined text-primary text-2xl">
+                <span className="material-symbols-outlined text-cta-light text-2xl">
                  <BriefcaseBusiness />
                 </span>
                 {i < experiences.length - 1 && (
@@ -94,7 +92,7 @@ export  function ExperienceSection() {
                 {exp.responsibilities && (
                   <details
                     open={expandedIndex === i}
-                    className="mt-3 rounded-lg border bg-background-light dark:bg-background-dark px-4 py-2 group"
+                    className="mflex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group"
                   >
                     <summary
                        onClick={() => toggleExpand(i)}
@@ -107,7 +105,7 @@ export  function ExperienceSection() {
                         <ChevronDown className='group-open:rotate-180'/>
                       </span>
                     </summary>
-                    <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm pb-2">
+                    <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal pb-2">
                       {exp.responsibilities}
                     </p>
                    

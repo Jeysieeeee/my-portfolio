@@ -7,7 +7,7 @@ export default function Home() {
           <div className="flex max-w-3xl flex-col items-start gap-6 text-left">
             <div className="flex flex-col gap-2">
               <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">Jean Carla Guarra</h1>
-              <h2 className="text-xl font-medium text-accent-light dark:text-accent-dark sm:text-2xl">
+              <h2 className="text-xl font-medium  text-accent-light dark:text-accent-dark sm:text-2xl">
                Frontend Engineer
               </h2>
               <p className="mt-2 text-base max-w-xl text-text-light/80 dark:text-text-dark/80 sm:text-lg">
@@ -16,7 +16,7 @@ export default function Home() {
             </div>
 
             <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Link href="/works" className="flex items-center text-center h-12 min-w-[84px] rounded-lg bg-cta-light text-text-light border-white border dark:bg-cta-dark dark:text-text-dark px-6 text-base font-bold tracking-wide hover:scale-105 transition-transform">
+              <Link href="/works" className="flex h-12 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-cta-light text-text-light dark:bg-cta-dark dark:text-text-dark px-6 text-base font-bold tracking-wide transition-transform hover:scale-105">
                 View My Works
               </Link>
                <div className="flex items-center gap-3">

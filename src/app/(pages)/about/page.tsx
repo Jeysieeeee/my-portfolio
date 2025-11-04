@@ -1,6 +1,5 @@
 
 import { DownloadResumeSection, EducationSection, ExperienceSection, SkillsSection } from '@/features'
-import React from 'react'
 
 export default function AboutPage() {
   return (
@@ -8,7 +7,7 @@ export default function AboutPage() {
                  <div className="max-w-[960px] mx-auto flex flex-col gap-12">
                    <div>
               <h1 className="text-4xl sm:text-5xl font-bold mb-2">My Journey</h1>
-              <p className="text-text-secondary-light dark:text-text-secondary-dark text-base">
+              <p className="text-text-light dark:text-text-dark text-base">
                 A timeline of my professional experience, education, and skills.
               </p>
             </div>  

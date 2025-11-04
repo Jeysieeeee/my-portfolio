@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button'
-import { Card, CardContent } from '@/components/Card'
+import { Button } from '@/components/Button';
+import { Card } from '@/components/Card';
 import { SkillIcon } from '@/components/SkillsIcon';
 import { cn } from '@/lib';
 import { TCommonIcon } from '@/types';
@@ -23,15 +23,14 @@ export function SkillsSection() {
           Technical Skills
         </h2>
 
-        <Card className="p-4">
-          <CardContent className="flex flex-wrap gap-3">
+        <Card className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark">
+          
             {skills.map((skill, i) => (
               <Button
                 key={i}
                 variant="secondary"
                 className={cn(
-                  "flex items-center  justify-center gap-2 px-3 py-1 rounded-full border border-transparent bg-background-light dark:bg-background-dark hover:bg-primary/20 transition-all",
-                  "cursor-pointer"
+                  "flex items-center gap-3 p-3 rounded-lg bg-background-light dark:bg-background-dark"
                 )}
               >
                 <span className="material-symbols-outlined text-primary text-base">
@@ -40,7 +39,6 @@ export function SkillsSection() {
                 <span className="text-sm font-medium">{skill.name}</span>
               </Button>
             ))}
-          </CardContent>
         </Card>
       </section>
   )
