@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/Button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib";
 import { Menu } from "lucide-react";
@@ -70,12 +71,12 @@ export function Header() {
           <ThemeToggle/>
 
           {/* Mobile Menu Button */}
-          <button
+          <Button
             className="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="size-5" />
-          </button>
+          </Button>
         </div>
       </div>
 

@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { X } from "lucide-react";
-import { cn } from "@/lib";
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/Button";
+import { cn } from "@/lib";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface SidebarProps {
   open: boolean;
@@ -14,13 +15,45 @@ interface SidebarProps {
 
 export function Sidebar({ open, onClose }: SidebarProps) {
   const pathname = usePathname();
-
+    const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const links = [
     { href: "/about", label: "About" },
     { href: "/works", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
 
+   useEffect(() => {
+      setMounted(true);
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+      const currentTheme =
+        savedTheme === "dark" || (!savedTheme && prefersDark)
+          ? "dark"
+          : "light";
+  
+      setTheme(currentTheme);
+      document.documentElement.classList.toggle("dark", currentTheme === "dark");
+    }, []);
+  
+      useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme, mounted]);
+
+  if (!mounted) {
+    // Render nothing (or placeholder) until mounted, avoids mismatch
+    return (
+      <button
+        aria-label="Toggle theme"
+        className="h-10 w-10 rounded-full bg-black/5 dark:bg-white/10"
+      />
+    );
+  }
   return (
     <AnimatePresence>
       {open && (
@@ -71,7 +104,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
             </nav>
 
             <div className="mt-auto pt-8">
-              <Button className="w-full bg-[#98DAD9] text-[#2E424D] font-semibold hover:opacity-90 transition">
+              <Button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="w-full bg-accent-1 dark:bg-accent-2 dark:text-[#2E424D] font-semibold hover:opacity-90 transition text-text-dark ">
                 Toggle Theme
               </Button>
             </div>
