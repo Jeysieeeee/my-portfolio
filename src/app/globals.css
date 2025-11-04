@@ -22,7 +22,7 @@
 @theme  {
   --color-background-light: #eaebed;
   --color-background-dark: #2e424d;
-  --color-primary:#2E424D;
+  --color-primary:#98DAD9;
   --color-secondary:#5B8291;
   --color-accent-light: #5b8291;
   --color-accent-dark: #98dad9;
@@ -40,6 +40,7 @@
   --color-card-dark: #2E424D;
   --color-accent-1: #5B8291;
   --color-accent-2: #98DAD9;
+  --color-primary-text: #2E424D;
 }
 
 body {

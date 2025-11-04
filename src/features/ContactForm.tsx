@@ -105,7 +105,7 @@ export default function ContactForm() {
 
             <Button
               type="submit"
-              className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 bg-primary  dark:bg-accent-dark dark:text-background-dark text-accent-2 text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 active:opacity-80 transition-opacity"
+              className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 bg-primary text-primary-text text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 active:opacity-80 transition-opacity"
             >
               Send Message
             </Button>
