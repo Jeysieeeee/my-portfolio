@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
-import ContactForm from '@/features/ContactForm'
-import { motion } from "framer-motion";
+import ContactForm from '@/features/ContactForm';
 import { FileUser, Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ContactPage() {
   return (
@@ -25,8 +25,15 @@ export default function ContactPage() {
          </div>
 
    <div className="flex justify-center lg:justify-start items-center gap-6 pt-4">
-    <Github />
-             <Linkedin />
+    <Link href='https://github.com/Jeysieeeee'><Github /></Link>
+    
+         <Link
+                   rel="noopener noreferrer"
+                target="_blank"
+                  href="https://www.linkedin.com/in/jean-carla-guarra-a9bb88225/"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/10 text-text-light/80 dark:text-text-dark/80 transition-colors hover:text-text-light dark:hover:text-text-dark"
+                ><Linkedin />
+                  </Link>     
 
             <a href={'/assets/resume.pdf'} download>
                <FileUser />

@@ -35,6 +35,14 @@ const projects: Project[] = [
       "/images/works/stanway.png",
     liveDemo:'https://www.stanwayrealestate.com/'
   },
+    {
+  title: "Artificial Turf Installation Website",
+  description:
+    "A professional and responsive website built for JMH Turf, a family-owned business specializing in artificial turf installation and landscaping services in Goodyear, Arizona. The site highlights their expertise, showcases service details, and provides an easy way for customers to reach out. Designed with a clean layout, engaging visuals, and SEO-friendly structure to ensure strong online visibility and lead generation.",
+  tech: ["WordPress", "Elementor", "Custom CSS", "SEO Optimization", "Responsive Design", "JavaScript"],
+  image: "/images/works/jmhturf.png",
+  liveDemo: "https://jmhturf.com/"
+},
   {
     title: "Betting Sites",
     description:
