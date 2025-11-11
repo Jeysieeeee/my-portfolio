@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Jean- Portfolio",
-  description: "Creative Frontend Developer Portfolio",
+  description: "Hello, I'd love to help bring it to life for startups and enterprises. You can contact me via WhatsApp, Telegram, or email.",
 };
 
 export default function RootLayout({
