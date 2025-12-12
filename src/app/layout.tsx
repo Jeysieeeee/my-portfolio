@@ -2,6 +2,7 @@ import { Toaster } from "@/components/Sonner";
 import { MainLayout } from "@/features";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+// @ts-ignore: Allow side-effect CSS import without type declarations
 import "./globals.css";
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
