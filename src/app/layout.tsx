@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/Sonner";
 import { MainLayout } from "@/features";
 import type { Metadata } from "next";
@@ -24,6 +25,7 @@ export default function RootLayout({
        <body className={`${spaceGrotesk.className} bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased`}>
       <MainLayout>{children}</MainLayout>
         <Toaster duration={3000} className="sm:min-w-120 rounded-md" position="top-center" />
+        <SpeedInsights />
       </body>
     </html>
   );
