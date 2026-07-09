@@ -8,7 +8,7 @@ export default function WorksPage() {
        <div>
           <h1 className="text-4xl sm:text-5xl font-bold mb-2">My Works</h1>
           <p className="text-text-secondary-light dark:text-text-secondary-dark text-base">
-                Here's a selection of my projects that showcase my skills and experience. Each project includes a brief description, the technologies used, and links to the live demo and source code.
+                Here&apos;s a selection of my projects that showcase my skills and experience. Click on any image to see the full story — description, technologies used, and links to the live demo or source code.
               </p>
         </div> 
       </div>
